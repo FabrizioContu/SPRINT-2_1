@@ -1,15 +1,11 @@
 // NIVELL 1
 // exercici 1
 
-const add = (a, b) => {
-  return a + b;
-};
+const add = (a, b) => a + b;
 console.log(add(3, 6));
 
 // exercici 2
-const randomNumber = () => {
-  return Math.round(Math.random() * 100);
-};
+const randomNumber = () => Math.round(Math.random() * 100);
 console.log(randomNumber());
 
 // ex 3
@@ -18,9 +14,7 @@ class Person {
   constructor(name) {
     this.name = name;
   }
-  greet = () => {
-    console.log(`Hola, ${this.name}`);
-  };
+  greet = () => console.log(`Hola, ${this.name}`);
 }
 
 const person = new Person("Ada");
@@ -31,9 +25,9 @@ person.greet();
 
 const numbers = [1, 2, 3, 4, 5, 6, 67];
 
-const printNumbers = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
+const printNumbers = (numbers) => {
+  for (const number of numbers) {
+    console.log(number);
   }
 };
 
@@ -41,9 +35,8 @@ printNumbers(numbers);
 
 //ex 5
 
-const printMessage = () => {
-  console.log("Hola soy un mensaje!");
-};
+const printMessage = () => console.log("Hola soy un mensaje!");
+;
 
 setTimeout(printMessage, 3000);
 
@@ -191,9 +184,7 @@ console.log(array3);
 const suma = (a, b, ...c) => {
   let resultado = a + b;
 
-  c.forEach((el) => {
-    resultado += el;
-  });
+  c.forEach((el) => resultado += el);
   return resultado;
 };
 
@@ -229,9 +220,8 @@ console.log(rest);
 // Nivell 3
 // Exercici 5
 
-const sumar = (num1, num2, num3) => {
-  return num1 + num2 + num3;
-};
+const sumar = (num1, num2, num3) => num1 + num2 + num3;
+;
 
 const calculos = [2, 6, 9];
 
@@ -261,9 +251,7 @@ console.log(cliente);
 
 const numerosA = [1, 2, 3, 4];
 
-const cuadrado = numerosA.map((el) => {
-  return el * el;
-});
+const cuadrado = numerosA.map((el) => el * el);
 
 console.log(`Array original: ${numerosA}`);
 console.log(cuadrado);
@@ -272,9 +260,7 @@ console.log(cuadrado);
 
 const numerosB = [1, 2, 3, 4];
 
-const parell = numerosB.filter((el) => {
-  return el % 2 == 0;
-});
+const parell = numerosB.filter((el) => el % 2 == 0);
 
 console.log(`Array original: ${numerosB}`);
 console.log(parell);
@@ -283,9 +269,7 @@ console.log(parell);
 
 const numerosC = [1, 10, 8, 11];
 
-const major = numerosC.find((el) => {
-  return el > 10;
-});
+const major = numerosC.find((el) =>  el > 10);
 
 console.log(`Array original: ${numerosC}`);
 console.log(`El primer número mayor de 10 es ${major}`);
@@ -294,9 +278,7 @@ console.log(`El primer número mayor de 10 es ${major}`);
 
 const numerosD = [13, 7, 8, 21];
 
-const total = numerosD.reduce((a, b) => {
-  return a + b;
-});
+const total = numerosD.reduce((total, b) => total + b, 0);
 
 console.log(`Array original: ${numerosD}`);
 console.log(`La suma total es ${total}`);
@@ -334,9 +316,7 @@ console.log(combinado);
 
 const numerosF = [11, 12, 13, 14];
 
-const esMayorDeDiez = (el) => {
-  return el > 10;
-};
+const esMayorDeDiez = ((el) => el > 10)
 
 console.log(numerosF.every(esMayorDeDiez));
 console.log(numerosF.some(esMayorDeDiez));
@@ -415,18 +395,17 @@ console.log(holaMon());
 
 // Exercici 2
 
-function holaMon(){
-  return new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-      resolve (`Hola, món`);
-    }, 2000)
-  })
+function holaMon() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Hola, món`);
+    }, 2000);
+  });
 }
 
-holaMon()
-.then((result)=>{
+holaMon().then((result) => {
   console.log(result);
-})
+});
 
 // Exercici 3
 
@@ -453,7 +432,7 @@ holaMon("Hola")
 // Exercici 4
 
 async function imprimirHolaMon() {
- {
+  {
     const resultat = await holaMon();
     console.log(resultat);
   }
@@ -476,19 +455,18 @@ imprimirHolaMon();
 // Exercici 6
 // Promise.all: Crea dues promeses que es resolguin després de 2 i 3 segons, respectivament. Utilitza Promise.all per a esperar que ambdues promeses es resolguin, i imprimeix els resultats a la consola.
 
-const p1 = new Promise((resolve,reject) => {
-    setTimeout(()=>{
-      console.log("Hola Promise1");
-    }, 2000)
-  });
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("Hola Promise1");
+  }, 2000);
+});
 
-const p2 = new Promise((resolve,reject) =>{
-  setTimeout(()=>{
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
     console.log("Hola Promise2");
-  }, 3000)
-})
+  }, 3000);
+});
 
-Promise.all([p1,p2])
-.then((resolve) =>{
-console.log(resolve);
-})
+Promise.all([p1, p2]).then((resolve) => {
+  console.log(resolve);
+});
